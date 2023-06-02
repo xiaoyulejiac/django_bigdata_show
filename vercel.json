@@ -11,7 +11,7 @@
     ],
     "routes": [
         {
-            "src": "/staticfiles/(.*)",
+            "src": "/collect_static/(.*)",
             "dest": "dtest/wsgi.py"
         }
     ]
