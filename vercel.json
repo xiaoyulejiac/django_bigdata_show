@@ -5,13 +5,13 @@
             "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
         },
         {
-            "src": "collect_static/**/*",
+            "src": "collect_static/assets",
             "use": "@vercel/static"
         }
     ],
     "routes": [
         {
-            "src": "/collect_static/(.*)",
+            "src": "/(.*)",
             "dest": "dtest/wsgi.py"
         }
     ]
