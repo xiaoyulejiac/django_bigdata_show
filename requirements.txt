@@ -5,7 +5,6 @@ attrs==23.1.0
 bleach==6.0.0
 certifi==2023.5.7
 charset-normalizer==3.1.0
-click @ file:///opt/concourse/worker/volumes/live/2d66025a-4d79-47c4-43be-6220928b6c82/volume/click_1646056610594/work
 defusedxml==0.7.1
 diff-match-patch==20230430
 Django==4.2.1
