@@ -25,3 +25,5 @@ urlpatterns = [
     path('',views.index,name='index_unlog'),
     path('users-profile.html/', views.get_profile, name='detail')
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
