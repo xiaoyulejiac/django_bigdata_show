@@ -23,5 +23,8 @@
         "src": "/(.*)",
         "dest": "dtest/wsgi.py"
       }
-    ]
+    ],
+    "github": {
+      "silent": true
+    }
   }
