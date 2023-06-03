@@ -18,7 +18,7 @@ from pyecharts.globals import ThemeType
 from pyecharts.datasets import register_url
 from pyecharts.charts import Geo
 from pyecharts.globals import ChartType
-from data.function.const_data_provider import age_data_provider, edu_data_provider, edu_list_data_provider, age_sorted_data_provider, changchun_edu_list_data_provider
+from data.function.const_data_provider import age_data_provider, edu_data_provider, edu_list_data_provider, age_sorted_data_provider, changchun_edu_list_data_provider, marriage_data_provider
  
 # ---------------------------数据段---------------------------
 # 本地调试数据初始化

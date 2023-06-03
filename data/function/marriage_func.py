@@ -9,7 +9,7 @@ def  marriage_function(host, port, user, password, database):
     mycursor = mydb.cursor()
 
     mycursor.execute("SELECT marry, COUNT(*) FROM data GROUP BY marry")
-
+    print("mysql执行完毕")
     myresult = mycursor.fetchall()
 
     result = ""
@@ -23,4 +23,5 @@ def  marriage_function(host, port, user, password, database):
     my_dict = {lst[i]: int(lst[i+1]) for i in range(0, len(lst), 2)}
     # [156956, 243124] 已婚 未婚
     my_list = list(my_dict.values())
+    print(my_list)
     return my_list
