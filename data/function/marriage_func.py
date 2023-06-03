@@ -8,7 +8,7 @@ def  marriage_function(host, port, user, password, database):
 
     mycursor = mydb.cursor()
 
-    mycursor.execute("SELECT marry, COUNT(*) FROM test GROUP BY marry")
+    mycursor.execute("SELECT marry, COUNT(*) FROM data GROUP BY marry")
 
     myresult = mycursor.fetchall()
 

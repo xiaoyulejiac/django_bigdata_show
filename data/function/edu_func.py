@@ -8,7 +8,7 @@ def edu_function(host, port, user, password, database):
 
     mycursor = mydb.cursor()
 
-    mycursor.execute("SELECT edu, COUNT(*) FROM test GROUP BY edu")
+    mycursor.execute("SELECT edu, COUNT(*) FROM data GROUP BY edu")
 
     myresult = mycursor.fetchall()
 

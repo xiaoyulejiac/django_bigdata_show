@@ -22,7 +22,7 @@ def age_function(host, port, user, password, database):
     cursor = db.cursor()
 
 # 查询生日数据
-    cursor.execute("SELECT birth FROM test")
+    cursor.execute("SELECT birth FROM data")
 
 # 获取所有行
     rows = cursor.fetchall()
