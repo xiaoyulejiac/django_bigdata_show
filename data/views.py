@@ -28,7 +28,7 @@ changchun_edu_data = {'专科': 31272, '其他': 93378, '本科': 9515, '硕士�
 edu_list_data = [['专科', 31272, '7.82%'], ['其他', 93378, '23.34%'], ['本科', 9515, '2.38%'], ['硕士学历及以上', 2474, '0.62%'], ['高中学历及以下', 263441, '65.85%']]
 changchun_edu_list_data = [[31272, 93378, 9515, 2474, 263441]]
 changchun_marry_data = [156956, 243124, 408000]
-
+changchun_people_age_data = [1100957, 6075939, 1890010]
 # (数据库)数据初始化
 # changchun_age_data = age_data_provider()
 # changchun_age_sorted_data = age_sorted_data_provider()
@@ -399,19 +399,17 @@ def index(request):
 
 
     # -----------------长春市人口结构分布示意图----------------
-    changchun_people_distribution_data_show = Bar(init_opts=opts.InitOpts(width="820px"))
-    changchun_people_distribution_data_show.add_xaxis(
-                                    [
-                                        "0-14岁",
-                                        "15-59岁",
-                                        "60岁及以上",
-                                    ]
-                                )
-    changchun_people_distribution_data_show.add_yaxis("人口数据", [1100957, 6075939, 1890010])
+    changchun_people_distribution_data_show = Pie()
+    changchun_people_distribution_data_show.add(
+                        "",
+                        [list(z) for z in zip(['0-14岁','15-59岁','60岁及以上'],changchun_people_age_data)],
+                        center=["35%", "50%"],
+                    )
     changchun_people_distribution_data_show.set_global_opts(
-        xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=-15)),
-        title_opts=opts.TitleOpts(title="长春市人口结构图", subtitle="数据来源: 长春市第七次全国人口普查公报(第三号)"),
-    )
+                        title_opts=opts.TitleOpts(title="人口年龄段数据",subtitle="数据来源: 长春市第七次全国人口普查公报(第三号)"),
+                        legend_opts=opts.LegendOpts(pos_left="15%"),
+                    )
+    changchun_people_distribution_data_show.set_series_opts(label_opts=opts.LabelOpts(formatter="{b}: {c}"))
     changchun_people_distribution_data_show_html = changchun_people_distribution_data_show.render_embed()
 
     # -----------------长春市人口结构分布示意图----------------
