@@ -69,7 +69,7 @@ def index(request):
     # -----------------------长春市年龄分布详细表-----------------------
     changchun_people_age_data_show = Bar(init_opts=opts.InitOpts(theme=ThemeType.MACARONS))
     changchun_people_age_data_show.add_xaxis(list(map(str, changchun_age_data.keys())))
-    changchun_people_age_data_show.add_yaxis("详细年龄数据", list(map(str, changchun_age_data.values())))
+    changchun_people_age_data_show.add_yaxis("数据库数据", list(map(str, changchun_age_data.values())))
     changchun_people_age_data_show.set_global_opts(
                                         title_opts=opts.TitleOpts(title="详细年龄数据"),
                                         datazoom_opts=[opts.DataZoomOpts()],
@@ -384,7 +384,7 @@ def index(request):
                                                 subtitle_link=WIKI_LINK,
                                             ),
                                             tooltip_opts=opts.TooltipOpts(
-                                                trigger="item", formatter="{b}<br/>{c} (元 / m2)"
+                                                trigger="item", formatter="{b}<br/>{c} (亿元)"
                                             ),
                                             visualmap_opts=opts.VisualMapOpts(
                                                 min_=205,
@@ -397,6 +397,25 @@ def index(request):
     changchun_GDP_distribution_map_data_show_html = changchun_GDP_distribution_map_data_show.render_embed()
     # -----------------长春市GDP分布示意图----------------
 
+
+    # -----------------长春市人口结构分布示意图----------------
+    changchun_people_distribution_data_show = Bar(init_opts=opts.InitOpts(width="820px"))
+    changchun_people_distribution_data_show.add_xaxis(
+                                    [
+                                        "0-14岁",
+                                        "15-59岁",
+                                        "60岁及以上",
+                                    ]
+                                )
+    changchun_people_distribution_data_show.add_yaxis("人口数据", [1100957, 6075939, 1890010])
+    changchun_people_distribution_data_show.set_global_opts(
+        xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(rotate=-15)),
+        title_opts=opts.TitleOpts(title="长春市人口结构图", subtitle="数据来源: 长春市第七次全国人口普查公报(第三号)"),
+    )
+    changchun_people_distribution_data_show_html = changchun_people_distribution_data_show.render_embed()
+
+    # -----------------长春市人口结构分布示意图----------------
+
     # 将图表传递给模板
     context = {'changchun_people_age_data_show_html': changchun_people_age_data_show_html,
                 'gdp_contrast_data_show_html': gdp_contrast_data_show_html,
@@ -408,6 +427,7 @@ def index(request):
                 'test_html' :test_html,
                 'changchun_fangjia_distribution_map_data_show_html' : changchun_fangjia_distribution_map_data_show_html,
                 'changchun_GDP_distribution_map_data_show_html' : changchun_GDP_distribution_map_data_show_html,
+                'changchun_people_distribution_data_show_html' : changchun_people_distribution_data_show_html,
                 }
 
     
